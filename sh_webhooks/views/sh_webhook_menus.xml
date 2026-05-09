@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="sh_webhook_menu_root" name="Webhooks" parent="base.menu_administration" sequence="100"/>
+
+    <!-- Analytics Group -->
+    <menuitem id="sh_webhook_menu_analytics" name="Analytics" parent="sh_webhook_menu_root" sequence="10"/>
+    <menuitem id="sh_webhook_menu_traffic" name="Traffic" parent="sh_webhook_menu_analytics" action="sh_webhook_log_action" sequence="10"/>
+    <!-- Note: 'Hooks' and 'Requests' in Analytics usually point to filtered logs or dashboards. 
+         For now, we'll point to the main log action as a placeholder. -->
+    <menuitem id="sh_webhook_menu_analytics_hooks" name="Hooks" parent="sh_webhook_menu_analytics" action="sh_webhook_action_action" sequence="20"/>
+    <menuitem id="sh_webhook_menu_analytics_incoming" name="Requests" parent="sh_webhook_menu_analytics" action="sh_webhook_incoming_action" sequence="30"/>
+
+    <!-- Hooks Group -->
+    <menuitem id="sh_webhook_menu_hooks_group" name="Hooks" parent="sh_webhook_menu_root" sequence="20"/>
+    <menuitem id="sh_webhook_menu_action" name="Actions" parent="sh_webhook_menu_hooks_group" action="sh_webhook_action_action" sequence="10"/>
+    <menuitem id="sh_webhook_menu_automation" name="Automation" parent="sh_webhook_menu_hooks_group" action="base_automation.base_automation_act" sequence="20"/>
+    <menuitem id="sh_webhook_menu_schedule" name="Schedules" parent="sh_webhook_menu_hooks_group" action="base.ir_cron_act" sequence="30"/>
+
+    <!-- Configuration Group -->
+    <menuitem id="sh_webhook_menu_config" name="Configuration" parent="sh_webhook_menu_root" sequence="30"/>
+    <menuitem id="sh_webhook_menu_auth" name="Authentication" parent="sh_webhook_menu_config" action="sh_webhook_auth_action" sequence="10"/>
+</odoo>
